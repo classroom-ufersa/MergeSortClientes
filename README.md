@@ -1,4 +1,4 @@
-#Merge Sort algorithm
+# Merge Sort algorithm
 
 
 Ordenação de clientes com Merge Sort:
