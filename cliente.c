@@ -1,7 +1,7 @@
 #include "cliente.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+//struct
 struct clientes{
     char nome[20];
     char endereco[50];
