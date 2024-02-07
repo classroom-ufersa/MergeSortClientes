@@ -29,8 +29,7 @@ int main(void){
 
     }
     
-
-    //Liberando a memoria linha por linha
+    
     free(Usuarios);
     
     fclose(arquivo_client);
