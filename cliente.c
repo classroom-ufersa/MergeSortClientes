@@ -1,9 +1,8 @@
 #include "cliente.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-struct clientes
-{
+//struct
+struct clientes{
     char nome[20];
     char endereco[50];
     int codigo_de_cliente;
