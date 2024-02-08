@@ -25,7 +25,8 @@ int main(void){
 
          Usuarios[i] = prenchendo_dados();
 
-         fprintf(arquivo_client,"-------------------------\n Nome: %s \n Endereço: %s \n Código de Cliente: %d \n",Usuarios[i]->nome, Usuarios[i]->endereco, Usuarios[i]->codigo_de_cliente);
+         fprintf(arquivo_client,"-------------------------\n Nome: %s \n Endereço: %s \n Código de Cliente: %d \n",
+         Usuarios[i]->nome, Usuarios[i]->endereco, Usuarios[i]->codigo_de_cliente);
 
     }
     
