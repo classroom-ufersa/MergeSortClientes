@@ -1,4 +1,12 @@
 -------------------------
  Nome: thyago 
- Endereço: fafajsfjafjkaakjfa,31 
- Código de Cliente: 124124 
+ Endereço: venscelau jose de souza,31 
+ Código de Cliente: 12412412 
+-------------------------
+ Nome: erick 
+ Endereço: fkamfasfmaakm 
+ Código de Cliente: 12421121 
+-------------------------
+ Nome: thallys 
+ Endereço: fakmfakfma 
+ Código de Cliente: 23211 

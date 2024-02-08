@@ -4,7 +4,7 @@ int main(void)
 {
     int escolha = 0;
     int total_de_Usuarios = 0;
-
+    // criar uma função para abrir o arquivo e ler ele colocar os dados no vetor!.
     FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "a+");
 
     if (arquivo_client == NULL)
@@ -20,8 +20,7 @@ int main(void)
         exit(1);
     }
 
-
-
+     ler_arquivo(Usuarios, "arquivo_dados_dos_clientes.txt", &total_de_Usuarios);
 
     do
     {

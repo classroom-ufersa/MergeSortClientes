@@ -8,4 +8,4 @@ struct clientes, recebe os dados via teclado e retorna
 um ponteiro para cliente*/
 
 void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados);
-
+void ler_arquivo(clientes *usuario, char *caminho, int *total_de_usuarios);

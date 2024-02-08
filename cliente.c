@@ -28,3 +28,25 @@ void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados) {
 
     *usuarios = (clientes*)realloc(*usuarios, (*total_de_usuarios)*sizeof(clientes));
 }
+
+void ler_arquivo(clientes *usuario, char *caminho, int *total_de_usuarios) {
+    FILE *arquivo = fopen(caminho, "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        exit(1);
+    }
+
+    char linha[100];
+    int i = 0;
+    while (fgets(linha, 100, arquivo) != NULL) {
+        sscanf(linha, "Nome: %[^\n]", usuario[i].nome);
+        fgets(linha, 100, arquivo);
+        sscanf(linha, "Endereço: %[^\n]", usuario[i].endereco);
+        fgets(linha, 100, arquivo);
+        sscanf(linha, "Código: %[^\n]", usuario[i].codigo_de_cliente);
+        fgets(linha, 100, arquivo);
+        i++;
+    }
+    fclose(arquivo);
+    *total_de_usuarios = i;
+}
