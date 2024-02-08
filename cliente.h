@@ -1,4 +1,5 @@
-
+#include <stdio.h>
+#include <stdlib.h>
 /*Definição de novo tipo: clientes*/
 typedef struct clientes clientes;
 
@@ -6,4 +7,5 @@ typedef struct clientes clientes;
 struct clientes, recebe os dados via teclado e retorna
 um ponteiro para cliente*/
 
-clientes * prenchendo_dados(void);
+void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados);
+
