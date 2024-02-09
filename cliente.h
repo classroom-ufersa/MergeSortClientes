@@ -3,6 +3,10 @@
 /*Definição de novo tipo: clientes*/
 typedef struct clientes clientes;
 
+/*Lê até encontrar uma nova linha ou até atingir o tamanho máximo especificado do 
+buffer e descarta o lixo de memoriado teclado*/
+void limpa_buffer (void);
+
 /*função que aloca memoria para 
 struct clientes, recebe os dados via teclado e retorna
 um ponteiro para cliente*/

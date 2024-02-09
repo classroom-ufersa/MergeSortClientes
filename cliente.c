@@ -8,6 +8,11 @@ struct clientes{
     int codigo_de_cliente;
 };
 
+void limpa_buffer (void){
+    char buffer[100];
+    fgets(buffer, sizeof(buffer), stdin); // Lê uma linha inteira de entrada
+}
+
 void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados) {
     printf("----------------------------------\n");
     printf("Informe o nome: ");
