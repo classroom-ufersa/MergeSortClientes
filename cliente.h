@@ -1,11 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*Definição de novo tipo: clientes*/
-typedef struct clientes clientes;
 
-/*função que aloca memoria para 
-struct clientes, recebe os dados via teclado e retorna
-um ponteiro para cliente*/
+/*Estrutura que armazena os dados dos clientes */
+typedef struct Clientes{
+    char nome[20];
+    char endereco[50];
+    int codigo_de_cliente;
+}clientes;
 
-void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados);
-void ler_arquivo(clientes *usuario, char *caminho, int *total_de_usuarios);
+/*função que exibe o menu*/
+void menu();
+
+/*Essa função realoca a memória para o vetor de clientes e verifica se a alocação foi bem sucedida,
+ recebendo como parâmetro o endereço do vetor de clientes e o total de usuários cadastrados.*/
+void realocar_Memoria(clientes **usuarios, int total_de_Usuarios);
+
+/*Essa função preenche os dados dos clientes e os armazena em um arquivo e no vetor, recebendo como parâmetro o vetor de clientes,
+ o total de usuários cadastrados e o arquivo onde os dados serão armazenados.*/
+void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);
+
+/*Essa função altera os dados dos clientes e os armazena em um arquivo e no vetor, recebendo como parâmetro o vetor de clientes,
+o total de usuários cadastrados e o arquivo onde os dados serão armazenados.*/
+void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);
+
+/*Essa função imprime os dados dos clientes cadastrados,
+recebendo como parâmetro o vetor de clientes e o total de usuários cadastrados.*/
+void imprimir_dados(clientes *usuarios, int total_de_Usuarios);

@@ -1,52 +1,85 @@
 #include "cliente.h"
-#include <stdio.h>
-#include <stdlib.h>
-//struct
-struct clientes{
-    char nome[20];
-    char endereco[50];
-    int codigo_de_cliente;
-};
 
-void preencher_dados(clientes **usuarios, int *total_de_usuarios, FILE *dados) {
-    printf("----------------------------------\n");
-    printf("Informe o nome: ");
-    scanf(" %[^\n]", (*usuarios)[*total_de_usuarios].nome);
-
-    printf("Informe o endereco: ");
-    scanf(" %[^\n]", (*usuarios)[*total_de_usuarios].endereco);
-
-    printf("Informe o codigo do Cliente: ");
-    scanf("%d", &((*usuarios)[*total_de_usuarios].codigo_de_cliente));
-
-    printf("----------------------------------\n");
-
-    fprintf(dados, "-------------------------\n Nome: %s \n Endereço: %s \n Código de Cliente: %d \n",
-            (*usuarios)[*total_de_usuarios].nome, (*usuarios)[*total_de_usuarios].endereco, (*usuarios)[*total_de_usuarios].codigo_de_cliente);
-
-    *total_de_usuarios += 1;
-
-    *usuarios = (clientes*)realloc(*usuarios, (*total_de_usuarios)*sizeof(clientes));
+void menu()
+{
+    printf("\nMenu de Opções:\n"
+           "1. Cadastrar Usuarios\n"
+           "2. Alterar Dados\n"
+           "3. Opção 3\n"
+           "4. Sair\n");
 }
 
-void ler_arquivo(clientes *usuario, char *caminho, int *total_de_usuarios) {
-    FILE *arquivo = fopen(caminho, "r");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo.\n");
+void realocar_Memoria(clientes **usuarios, int total_de_Usuarios)
+{
+    *usuarios = (clientes *)realloc(*usuarios, total_de_Usuarios * sizeof(clientes));
+    if (*usuarios == NULL)
+    {
+        printf("ERRO DE MEMORIA");
         exit(1);
     }
+}
 
-    char linha[100];
-    int i = 0;
-    while (fgets(linha, 100, arquivo) != NULL) {
-        sscanf(linha, "Nome: %[^\n]", usuario[i].nome);
-        fgets(linha, 100, arquivo);
-        sscanf(linha, "Endereço: %[^\n]", usuario[i].endereco);
-        fgets(linha, 100, arquivo);
-        sscanf(linha, "Código: %[^\n]", usuario[i].codigo_de_cliente);
-        fgets(linha, 100, arquivo);
-        i++;
+void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
+{
+    printf("--------------------------\n");
+    printf("Digite o nome do cliente: ");
+    scanf(" %[^\n]", usuarios[total_de_Usuarios].nome);
+    printf("Digite o endereco do cliente: ");
+    scanf(" %[^\n]", usuarios[total_de_Usuarios].endereco);
+    usuarios[total_de_Usuarios].codigo_de_cliente = 1230 + total_de_Usuarios;
+    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[total_de_Usuarios].nome, usuarios[total_de_Usuarios].endereco, usuarios[total_de_Usuarios].codigo_de_cliente);
+
+    printf("---------------------------\n");
+    printf("Dados cadastrados com sucesso!\n");
+    printf("---------------------------\n");
+}
+
+void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
+{
+    int codigo;
+    do
+    {
+        printf("Digite o codigo do cliente que deseja alterar: ");
+        scanf("%d", &codigo);
+        if (codigo >= 1230 && codigo <= 1230 + total_de_Usuarios)
+        {
+            fclose(arquivo_client);
+            arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
+            for (int i = 0; i < total_de_Usuarios; i++)
+            {
+                if (usuarios[i].codigo_de_cliente == codigo)
+                {
+                    printf("Digite o novo nome do cliente: ");
+                    scanf(" %[^\n]", usuarios[i].nome);
+                    printf("Digite o novo endereço do cliente: ");
+                    scanf(" %[^\n]", usuarios[i].endereco);
+                    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
+
+                    printf("---------------------------\n");
+                    printf("Dados alterados com sucesso!\n");
+                    printf("---------------------------\n");
+                }
+                else
+                {
+                    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
+                }
+            }
+        }
+        else
+        {
+            printf("---------------------------\n");
+            printf("Codigo de cliente não encontrado!\n");
+            printf("Digite novamente o codigo do cliente\n ");
+            printf("---------------------------\n");
+        }
+    } while (codigo < 1230 || codigo > 1230 + total_de_Usuarios);
+}
+
+void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
+{
+    for (int i = 0; i < total_de_Usuarios; i++)
+    {
+        printf("---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n---------------------------\n",
+               usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
     }
-    fclose(arquivo);
-    *total_de_usuarios = i;
 }

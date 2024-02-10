@@ -2,10 +2,10 @@
 
 int main(void)
 {
-    int escolha = 0;
+    int escolha = 0, op = 0;
     int total_de_Usuarios = 0;
-    // criar uma função para abrir o arquivo e ler ele colocar os dados no vetor!.
-    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "a+");
+
+    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
 
     if (arquivo_client == NULL)
     {
@@ -13,36 +13,42 @@ int main(void)
         exit(1);
     }
 
-    clientes *Usuarios = (clientes *)malloc(total_de_Usuarios * sizeof(clientes));
+    clientes *Usuarios = (clientes *)malloc(1 * sizeof(clientes));
     if (Usuarios == NULL)
     {
         printf("ERRO DE MEMORIA");
         exit(1);
     }
 
-     ler_arquivo(Usuarios, "arquivo_dados_dos_clientes.txt", &total_de_Usuarios);
-
     do
     {
-        printf("\nMenu de Opções:\n");
-        printf("1. Cadastrar Usuarios\n");
-        printf("2. Opção 2\n");
-        printf("3. Opção 3\n");
-        printf("4. Sair\n");
+        menu();
         printf("Escolha uma opção: ");
-        scanf("%d", &escolha); //colocar como uma função para ler, para não quebrar o codigo -> Erick
+        scanf("%d", &escolha);
 
         switch (escolha)
         {
         case 1:
-            preencher_dados(&Usuarios, &total_de_Usuarios, arquivo_client);
-            printf("Cadastrado com Sucesso!!!");
+            do
+            {
+                realocar_Memoria(&Usuarios, total_de_Usuarios + 1);
+                preencher_Dados(Usuarios, total_de_Usuarios, arquivo_client);
+                total_de_Usuarios++;
+                printf("Deseja cadastrar mais um usuário? (1 - Sim / 2 - Não): ");
+                scanf("%d", &op);
+            } while (op != 2);
             break;
         case 2:
+            imprimir_dados(Usuarios, total_de_Usuarios);
+            alterar_dados(Usuarios, total_de_Usuarios, arquivo_client);
             break;
         case 3:
             break;
         case 4:
+            break;
+        case 5:
+            break;
+        case 6:
             printf("Saindo...\n");
             break;
         default:
