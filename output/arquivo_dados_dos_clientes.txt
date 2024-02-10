@@ -3,14 +3,10 @@
  Endereço: Antonio Martins
  Código de Cliente: 1230
 ---------------------------
- Nome: Erick
- Endereço: Francisco Dantas
+ Nome: Marcelo
+ Endereço: Alexandria
  Código de Cliente: 1231
 ---------------------------
  Nome: Beatriz
  Endereço: Iracema
  Código de Cliente: 1232
----------------------------
- Nome: Marcelo
- Endereço: Alexandria
- Código de Cliente: 1233
