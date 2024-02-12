@@ -26,7 +26,7 @@ void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_cl
     scanf(" %[^\n]", usuarios[total_de_Usuarios].nome);
     printf("Digite o endereco do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].endereco);
-    usuarios[total_de_Usuarios].codigo_de_cliente = 1230 + total_de_Usuarios;
+    usuarios[total_de_Usuarios].codigo_de_cliente = rand() % 1000;
     fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[total_de_Usuarios].nome, usuarios[total_de_Usuarios].endereco, usuarios[total_de_Usuarios].codigo_de_cliente);
 
     printf("---------------------------\n");
@@ -41,7 +41,7 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
     {
         printf("Digite o codigo do cliente que deseja alterar: ");
         scanf("%d", &codigo);
-        if (codigo >= 1230 && codigo <= 1230 + total_de_Usuarios)
+        if (codigo >= 0 && codigo <= 999)
         {
             fclose(arquivo_client);
             arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
@@ -72,7 +72,7 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
             printf("Digite novamente o codigo do cliente\n ");
             printf("---------------------------\n");
         }
-    } while (codigo < 1230 || codigo > 1230 + total_de_Usuarios);
+    } while (codigo < 0 || codigo > 999);
 }
 
 void imprimir_dados(clientes *usuarios, int total_de_Usuarios)

@@ -2,6 +2,7 @@
 
 int main(void)
 {
+    srand(time(NULL));
     int escolha = 0, op = 0;
     int total_de_Usuarios = 0;
 

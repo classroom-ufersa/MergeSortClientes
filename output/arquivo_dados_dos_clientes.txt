@@ -1,12 +1,16 @@
 ---------------------------
- Nome: Thyago
- Endereço: Antonio Martins
- Código de Cliente: 1230
----------------------------
  Nome: Marcelo
  Endereço: Alexandria
- Código de Cliente: 1231
+ Código de Cliente: 255
 ---------------------------
- Nome: Beatriz
+ Nome: Thyago
+ Endereço: Antonio Martins
+ Código de Cliente: 932
+---------------------------
+ Nome: Erick
+ Endereço: Francisco Dantas
+ Código de Cliente: 150
+---------------------------
+ Nome: Bia
  Endereço: Iracema
- Código de Cliente: 1232
+ Código de Cliente: 750
