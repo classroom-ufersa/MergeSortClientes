@@ -1,7 +1,7 @@
 #include "cliente.h"
 
 void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios) {
-    while (fscanf(arquivo_client, "Nome: %19[^\n]\nEndereço: %19[^\n]\nCódigo de Cliente: %d\n", (*usuarios)[*total_de_Usuarios].nome, (*usuarios)[*total_de_Usuarios].endereco, &(*usuarios)[*total_de_Usuarios].codigo_de_cliente) == 3) {
+    while (fscanf(arquivo_client, "Nome: %19[^\n]\nEndereço: %19[^\n]\nCódigo de Cliente: %d\n", (*usuarios)[*total_de_Usuarios].nome, (*usuarios)[*total_de_Usuarios].endereco, &(*usuarios)[*total_de_Usuarios].codigo_de_cliente) != EOF) {
         (*total_de_Usuarios)++;
         *usuarios = (clientes *)realloc(*usuarios, (*total_de_Usuarios + 1) * sizeof(clientes));
         if (*usuarios == NULL) {
