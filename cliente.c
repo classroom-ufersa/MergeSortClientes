@@ -1,5 +1,17 @@
 #include "cliente.h"
 
+void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios) {
+    while (fscanf(arquivo_client, "Nome: %19[^\n]\nEndereço: %19[^\n]\nCódigo de Cliente: %d\n", (*usuarios)[*total_de_Usuarios].nome, (*usuarios)[*total_de_Usuarios].endereco, &(*usuarios)[*total_de_Usuarios].codigo_de_cliente) == 3) {
+        (*total_de_Usuarios)++;
+        *usuarios = (clientes *)realloc(*usuarios, (*total_de_Usuarios + 1) * sizeof(clientes));
+        if (*usuarios == NULL) {
+            printf("Erro ao realocar memória.\n");
+            exit(1);
+        }
+    }
+}
+
+
 void menu()
 {
     printf("\nMenu de Opções:\n"
@@ -27,7 +39,11 @@ void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_cl
     printf("Digite o endereco do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].endereco);
     usuarios[total_de_Usuarios].codigo_de_cliente = rand() % 1000;
-    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[total_de_Usuarios].nome, usuarios[total_de_Usuarios].endereco, usuarios[total_de_Usuarios].codigo_de_cliente);
+
+    fprintf(arquivo_client, "Nome: %s\n", usuarios[total_de_Usuarios].nome);
+    fprintf(arquivo_client, "Endereço: %s\n", usuarios[total_de_Usuarios].endereco);
+    fprintf(arquivo_client, "Código de Cliente: %d\n", usuarios[total_de_Usuarios].codigo_de_cliente);
+    fprintf(arquivo_client, "\n");
 
     printf("---------------------------\n");
     printf("Dados cadastrados com sucesso!\n");
@@ -53,15 +69,21 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
                     scanf(" %[^\n]", usuarios[i].nome);
                     printf("Digite o novo endereço do cliente: ");
                     scanf(" %[^\n]", usuarios[i].endereco);
-                    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
 
+                    fprintf(arquivo_client, "Nome: %s\n", usuarios[i].nome);
+                    fprintf(arquivo_client, "Endereço: %s\n", usuarios[i].endereco);
+                    fprintf(arquivo_client, "Código de Cliente: %d\n", usuarios[i].codigo_de_cliente);
+                    fprintf(arquivo_client, "\n");
                     printf("---------------------------\n");
                     printf("Dados alterados com sucesso!\n");
                     printf("---------------------------\n");
                 }
                 else
                 {
-                    fprintf(arquivo_client, "---------------------------\n Nome: %s\n Endereço: %s\n Código de Cliente: %d\n", usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
+                    fprintf(arquivo_client, "Nome: %s\n", usuarios[i].nome);
+                    fprintf(arquivo_client, "Endereço: %s\n", usuarios[i].endereco);
+                    fprintf(arquivo_client, "Código de Cliente: %d\n", usuarios[i].codigo_de_cliente);
+                    fprintf(arquivo_client, "\n");
                 }
             }
         }

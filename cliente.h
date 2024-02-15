@@ -27,3 +27,7 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
 /*Essa função imprime os dados dos clientes cadastrados,
 recebendo como parâmetro o vetor de clientes e o total de usuários cadastrados.*/
 void imprimir_dados(clientes *usuarios, int total_de_Usuarios);
+
+/*Essa função lê os dados dos clientes armazenados em um arquivo e os armazena em um vetor,
+recebendo como parâmetro o arquivo onde os dados estão armazenados, o vetor de clientes e o total de usuários cadastrados.*/
+void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios);

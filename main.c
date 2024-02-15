@@ -6,7 +6,7 @@ int main(void)
     int escolha = 0, op = 0;
     int total_de_Usuarios = 0;
 
-    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
+    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "r");
 
     if (arquivo_client == NULL)
     {
@@ -21,6 +21,7 @@ int main(void)
         exit(1);
     }
 
+    ler_arquivo(arquivo_client, &Usuarios, &total_de_Usuarios);
     do
     {
         menu();

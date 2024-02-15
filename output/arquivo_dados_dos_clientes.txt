@@ -1,16 +1,12 @@
----------------------------
- Nome: Marcelo
- Endereço: Alexandria
- Código de Cliente: 255
----------------------------
- Nome: Thyago
- Endereço: Antonio Martins
- Código de Cliente: 932
----------------------------
- Nome: Erick
- Endereço: Francisco Dantas
- Código de Cliente: 150
----------------------------
- Nome: Bia
- Endereço: Iracema
- Código de Cliente: 750
+Nome: samuel
+Endereço: serveriano melo
+Código de Cliente: 660
+
+Nome: thyago
+Endereço: antonio martins
+Código de Cliente: 309
+
+Nome: gustavo
+Endereço: riacho
+Código de Cliente: 886
+
