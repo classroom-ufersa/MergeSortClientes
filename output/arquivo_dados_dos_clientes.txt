@@ -1,28 +1,27 @@
-Nome: samuel
-Endereço: serveriano melo
-Código de Cliente: 660
+Nome: francie
+Endereço: majo sales
+Código de Cliente: 299
 
 Nome: thyago
 Endereço: antonio martins
 Código de Cliente: 309
 
-Nome: gustavo
-Endereço: riacho
-Código de Cliente: 886
-
-Nome: francie
-Endereço: majo sales
-Código de Cliente: 299
-
 Nome: murilo
 Endereço: jose da penha
 Código de Cliente: 501
 
-Nome: julio
-Endereço: junco
-Código de Cliente: 966
+Nome: samuel
+Endereço: serveriano melo
+Código de Cliente: 660
 
 Nome: daniel
 Endereço: rafael fernandes
 Código de Cliente: 684
 
+Nome: gustavo
+Endereço: riacho
+Código de Cliente: 886
+
+Nome: julio
+Endereço: junco
+Código de Cliente: 966

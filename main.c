@@ -22,6 +22,7 @@ int main(void)
     }
 
     ler_arquivo(arquivo_client, &Usuarios, &total_de_Usuarios);
+
     do
     {
         menu();
@@ -44,7 +45,16 @@ int main(void)
             imprimir_dados(Usuarios, total_de_Usuarios);
             alterar_dados(Usuarios, total_de_Usuarios, arquivo_client);
             break;
-        case 3:
+        case 3: 
+            int arr_size = total_de_Usuarios;
+
+            printf("Given array is \n"); 
+            printArray(Usuarios, arr_size); 
+            mergeSort(Usuarios, 0, arr_size - 1);
+
+            printf("\nSorted array is \n"); 
+            printArray(Usuarios, arr_size);
+            alterar_dados_merge(Usuarios, total_de_Usuarios, arquivo_client);
             break;
         case 4:
             break;
@@ -57,7 +67,7 @@ int main(void)
             printf("Opção inválida. Tente novamente.\n");
             break;
         }
-
+        
     } while (escolha != 6);
 
     free(Usuarios);

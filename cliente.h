@@ -31,3 +31,9 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios);
 /*Essa função lê os dados dos clientes armazenados em um arquivo e os armazena em um vetor,
 recebendo como parâmetro o arquivo onde os dados estão armazenados, o vetor de clientes e o total de usuários cadastrados.*/
 void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios);
+
+void merge(clientes * usuarios, int l, int m, int r);
+
+void mergeSort(clientes * usuarios, int l, int r);
+
+void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);

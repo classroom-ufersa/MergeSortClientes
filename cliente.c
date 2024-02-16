@@ -11,7 +11,6 @@ void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuari
     }
 }
 
-
 void menu()
 {
     printf("\nMenu de Opções:\n"
@@ -26,7 +25,7 @@ void realocar_Memoria(clientes **usuarios, int total_de_Usuarios)
     *usuarios = (clientes *)realloc(*usuarios, total_de_Usuarios * sizeof(clientes));
     if (*usuarios == NULL)
     {
-        printf("ERRO DE MEMORIA");
+        printf("Erro ao realocar memória");
         exit(1);
     }
 }
@@ -105,3 +104,79 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
                usuarios[i].nome, usuarios[i].endereco, usuarios[i].codigo_de_cliente);
     }
 }
+
+void merge(clientes * usuarios, int l, int m, int r) 
+{ 
+    int i, j, k; 
+    int n1 = m - l + 1; 
+    int n2 = r - m; 
+  
+    clientes L[n1], R[n2]; 
+  
+    for (i = 0; i < n1; i++) 
+        L[i] = usuarios[l + i]; 
+    for (j = 0; j < n2; j++) 
+        R[j] = usuarios[m + 1 + j]; 
+  
+    i = 0; 
+    j = 0; 
+  
+    k = l; 
+    while (i < n1 && j < n2) { 
+        if (L[i].codigo_de_cliente <= R[j].codigo_de_cliente) { 
+            usuarios[k] = L[i]; 
+            i++; 
+        } 
+        else { 
+            usuarios[k] = R[j]; 
+            j++; 
+        } 
+        k++; 
+    } 
+  
+    while (i < n1) { 
+        usuarios[k] = L[i]; 
+        i++; 
+        k++; 
+    } 
+
+    while (j < n2) { 
+        usuarios[k] = R[j]; 
+        j++; 
+        k++; 
+    } 
+} 
+  
+void mergeSort(clientes * usuarios, int l, int r) 
+{ 
+    if (l < r) { 
+        int m = l + (r - l) / 2; 
+  
+        mergeSort(usuarios, l, m); 
+        mergeSort(usuarios, m + 1, r); 
+  
+        merge(usuarios, l, m, r); 
+    } 
+} 
+  
+void printArray(clientes *usuarios, int size) 
+{ 
+    int i; 
+    for (i = 0; i < size; i++) 
+        printf("%d ", usuarios[i].codigo_de_cliente); 
+    printf("\n"); 
+}
+
+void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
+{
+    arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
+            for (int i = 0; i < total_de_Usuarios; i++)
+            {
+                {
+                    fprintf(arquivo_client, "Nome: %s\n", usuarios[i].nome);
+                    fprintf(arquivo_client, "Endereço: %s\n", usuarios[i].endereco);
+                    fprintf(arquivo_client, "Código de Cliente: %d\n", usuarios[i].codigo_de_cliente);
+                    fprintf(arquivo_client, "\n");
+                }
+            }
+        }
