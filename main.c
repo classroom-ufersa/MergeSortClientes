@@ -50,10 +50,6 @@ int main(void)
             alterar_dados_merge(Usuarios, total_de_Usuarios, arquivo_client);
             break;
         case 4:
-            break;
-        case 5:
-            break;
-        case 6:
             printf("Saindo...\n");
             break;
         default:
@@ -61,7 +57,7 @@ int main(void)
             break;
         }
         
-    } while (escolha != 6);
+    } while (escolha != 4);
 
     free(Usuarios);
 
