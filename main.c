@@ -6,7 +6,7 @@ int main(void)
     int escolha = 0, op = 0;
     int total_de_Usuarios = 0;
 
-    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "r");
+    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "r+");
 
     if (arquivo_client == NULL)
     {
