@@ -10,14 +10,14 @@ int main(void)
 
     if (arquivo_client == NULL)
     {
-        printf("ERRO DE CRIAR O ARQUIVO\n");
+        printf("erro ao criar o arquivo\n");
         exit(1);
     }
 
     clientes *Usuarios = (clientes *)malloc(1 * sizeof(clientes));
     if (Usuarios == NULL)
     {
-        printf("ERRO DE MEMORIA");
+        printf("erro ao alocar memória");
         exit(1);
     }
 
@@ -48,6 +48,7 @@ int main(void)
         case 3:  
             mergeSort(Usuarios, 0, total_de_Usuarios - 1);
             alterar_dados_merge(Usuarios, total_de_Usuarios, arquivo_client);
+            printf("Ordenação realizada com sucesso! \n");
             break;
         case 4:
             printf("Saindo...\n");

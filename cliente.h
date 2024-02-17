@@ -32,8 +32,8 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios);
 recebendo como parâmetro o arquivo onde os dados estão armazenados, o vetor de clientes e o total de usuários cadastrados.*/
 void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios);
 
-void merge(clientes * usuarios, int l, int m, int r);
+void merge(clientes * usuarios, int esquerda, int meio, int direita);
 
-void mergeSort(clientes * usuarios, int l, int r);
+void mergeSort(clientes * usuarios, int esquerda, int direita);
 
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);

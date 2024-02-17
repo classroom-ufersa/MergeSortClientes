@@ -1,27 +1,24 @@
-Nome: francie
-Endereço: majo sales
-Código de Cliente: 299
+Nome: murilo
+Endereço: jose da penha
+Código de Cliente: 407
+
+Nome: erick
+Endereço: francisco dantas
+Código de Cliente: 412
 
 Nome: thyago
 Endereço: antonio martins
-Código de Cliente: 309
+Código de Cliente: 415
 
-Nome: murilo
-Endereço: jose da penha
-Código de Cliente: 501
+Nome: marcelo
+Endereço: alexandria
+Código de Cliente: 787
 
-Nome: samuel
-Endereço: serveriano melo
-Código de Cliente: 660
+Nome: bia
+Endereço: iracema
+Código de Cliente: 921
 
-Nome: daniel
-Endereço: rafael fernandes
-Código de Cliente: 684
-
-Nome: gustavo
-Endereço: riacho
-Código de Cliente: 886
-
-Nome: julio
-Endereço: junco
+Nome: francisco
+Endereço: pau dos ferros
 Código de Cliente: 966
+
