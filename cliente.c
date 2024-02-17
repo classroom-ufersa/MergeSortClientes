@@ -57,14 +57,14 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
     {
         printf("Digite o codigo do cliente que deseja alterar: ");
         scanf("%d", &codigo);
-        if (codigo >= 0 && codigo <= 999)
-        {
-            fclose(arquivo_client);
-            arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
+        fclose(arquivo_client);
+        arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");
+        bool valido = false;
             for (int i = 0; i < total_de_Usuarios; i++)
             {
                 if (usuarios[i].codigo_de_cliente == codigo)
                 {
+                    valido = true;
                     printf("Digite o novo nome do cliente: ");
                     scanf(" %[^\n]", usuarios[i].nome);
                     printf("Digite o novo endereço do cliente: ");
@@ -86,14 +86,13 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
                     fprintf(arquivo_client, "\n");
                 }
             }
-        }
-        else
-        {
-            printf("---------------------------\n");
-            printf("Codigo de cliente não encontrado!\n");
-            printf("Digite novamente o codigo do cliente\n ");
-            printf("---------------------------\n");
-        }
+
+    if (valido == false)
+    {
+        printf("---------------------------\n");
+        printf("Codigo de cliente não encontrado!\n");
+        printf("---------------------------\n");
+    }
     } while (codigo < 0 || codigo > 999);
 }
 
