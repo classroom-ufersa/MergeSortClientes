@@ -38,7 +38,3 @@ void merge(clientes * usuarios, int esquerda, int meio, int direita);
 void mergeSort(clientes * usuarios, int esquerda, int direita);
 
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);
-
-void limpabuffer();
-
-void ler_opcao(int menor_valor, int maior_valor);
