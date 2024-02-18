@@ -22,3 +22,7 @@ Nome: marcelo
 Endereço: alexandria
 Código de Cliente: 794
 
+Nome: thayssa
+Endereço: iracema
+Código de Cliente: 994
+
