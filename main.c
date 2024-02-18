@@ -26,8 +26,7 @@ int main(void)
     do
     {
         menu();
-        printf("Escolha uma opção: ");
-        scanf("%d", &escolha);
+        ler_opcao(1, 4);
 
         switch (escolha)
         {
