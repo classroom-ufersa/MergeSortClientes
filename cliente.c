@@ -23,16 +23,15 @@ int ler_opcao(int menor_valor, int maior_valor) {
     float entrada;
 
     do {
-        printf("Escolha uma opção: ");
         scanf(" %f.30", &entrada);
 
-        escolhaop = entrada; //[0] - '0'; // Convertendo o char para int
+        escolhaop = entrada;
 
         if (escolhaop >= menor_valor && escolhaop <= maior_valor) {
             limpabuffer();
             return escolhaop; // Retornar a opção selecionada
         } else {
-            printf("Opcao invalida. A opcao deve estar entre %d e %d. \n", menor_valor, maior_valor);
+            printf("Opcao invalida. A opcao deve estar entre %d e %d: ", menor_valor, maior_valor);
             limpabuffer();
         }
     } while (1);

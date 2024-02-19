@@ -26,6 +26,7 @@ int main(void)
 
     do {
         menu();
+        printf("Escolha uma opção: ");
         escolhaop = ler_opcao(1, 4); // Obter a opção do usuário
 
         switch (escolhaop) {
@@ -35,7 +36,7 @@ int main(void)
                 preencher_Dados(Usuarios, total_de_Usuarios, arquivo_client);
                 total_de_Usuarios++;
                 printf("Deseja cadastrar mais um usuário? (1 - Sim / 2 - Não): ");
-                scanf("%d", &escolhaop);
+                escolhaop = ler_opcao(1, 2);
                 } while (escolhaop != 2);
                 break;
             case 2:
