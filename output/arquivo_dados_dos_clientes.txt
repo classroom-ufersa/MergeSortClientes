@@ -26,6 +26,14 @@ Nome: kue
 Endereço: 999
 Código de Cliente: 413
 
+Nome: Marcelo
+Endereço: agua santa
+Código de Cliente: 418
+
+Nome: vinicius
+Endereço: potalegrem
+Código de Cliente: 594
+
 Nome: thyago
 Endereço: ~sakjfasjkfa
 Código de Cliente: 655
@@ -38,12 +46,20 @@ Nome: marcelo
 Endereço: alexandria
 Código de Cliente: 794
 
+Nome: samuel sla
+Endereço: agua nova, bairro lblaa, 31
+Código de Cliente: 810
+
 Nome: jean
 Endereço: 555
 Código de Cliente: 881
 
-Nome: luiz
-Endereço: ty
+Nome: Daniel
+Endereço: rafael lasd,af
+Código de Cliente: 916
+
+Nome: Luiz
+Endereço: iracema
 Código de Cliente: 935
 
 Nome: thayssa
