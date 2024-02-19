@@ -33,12 +33,22 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios);
 recebendo como parâmetro o arquivo onde os dados estão armazenados, o vetor de clientes e o total de usuários cadastrados.*/
 void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuarios);
 
+/*Essa função ordena os dados dos clientes em ordem pelo codigo de cliente, utilizando o algoritmo de ordenação merge sort
+recebendo como parâmetro o vetor de clientes, a posição inicial e a posição final do vetor.*/
 void merge(clientes * usuarios, int esquerda, int meio, int direita);
 
+/*Essa função ordena os dados dos clientes em ordem pelo codigo de cliente, utilizando o algoritmo de ordenação merge sort
+recebendo como parâmetro o vetor de clientes, a posição inicial e a posição final do vetor.*/
 void mergeSort(clientes * usuarios, int esquerda, int direita);
 
+/*Essa função altera os dados dos clientes e os armazena em um arquivo e no vetor, recebendo como parâmetro o vetor de clientes,
+o total de usuários cadastrados e o arquivo onde os dados serão armazenados.*/
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client);
 
+/*Essa função lê a opção escolhida pelo usuário e verifica se a opção é válida,
+recebendo como parâmetro o menor valor e o maior valor que a opção pode ter.*/
 int ler_opcao(int menor_valor, int maior_valor);
 
+/*Essa função limpa o buffer do teclado para evitar que lixo de memória seja lido.
+e evita que o programa entre em loop infinito.*/
 void limpabuffer();

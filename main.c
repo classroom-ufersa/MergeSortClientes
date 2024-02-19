@@ -4,6 +4,8 @@ int main(void)
 {
     srand(time(NULL));
     //int escolha = 0, op = 0;
+    clock_t inicio, fim;
+    float tempo;
     int escolhaop;
     int total_de_Usuarios = 0;
 
@@ -43,9 +45,13 @@ int main(void)
             imprimir_dados(Usuarios, total_de_Usuarios);
             alterar_dados(Usuarios, total_de_Usuarios, arquivo_client);
             break;
-            case 3:  
+            case 3:
+            inicio = clock();
             mergeSort(Usuarios, 0, total_de_Usuarios - 1);
             alterar_dados_merge(Usuarios, total_de_Usuarios, arquivo_client);
+            fim = clock();
+            tempo = (fim - inicio) * 100000000000000;
+            printf("Tempo de execução: %.f segundos\n", tempo);
             printf("Ordenação realizada com sucesso! \n");
             break;
             case 4:
