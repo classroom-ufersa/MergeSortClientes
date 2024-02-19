@@ -14,6 +14,30 @@ void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuari
     }
 }
 
+void limpabuffer() {
+    fflush(stdin);
+}
+
+int ler_opcao(int menor_valor, int maior_valor) {
+    int escolhaop;
+    float entrada;
+
+    do {
+        printf("Escolha uma opção: ");
+        scanf(" %f.30", &entrada);
+
+        escolhaop = entrada; //[0] - '0'; // Convertendo o char para int
+
+        if (escolhaop >= menor_valor && escolhaop <= maior_valor) {
+            limpabuffer();
+            return escolhaop; // Retornar a opção selecionada
+        } else {
+            printf("Opcao invalida. A opcao deve estar entre %d e %d. \n", menor_valor, maior_valor);
+            limpabuffer();
+        }
+    } while (1);
+}
+
 void menu()
 {
     printf("\nMenu de Opções:\n"
