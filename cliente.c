@@ -18,20 +18,20 @@ void limpabuffer() {
     fflush(stdin);
 }
 
-int ler_opcao(int menor_valor, int maior_valor) {
-    int escolhaop;
-    float entrada;
+char ler_opcao(char menor_valor, char maior_valor) {
+    char escolhaop;
+    char entrada[100];
 
     do {
-        scanf(" %f.30", &entrada);
+        scanf(" %[^\n]", entrada);
 
-        escolhaop = entrada;
+        escolhaop = entrada[0];
 
-        if (escolhaop >= menor_valor && escolhaop <= maior_valor) {
+        if (escolhaop >= menor_valor && escolhaop <= maior_valor && strlen(entrada) == 1) {
             limpabuffer();
             return escolhaop; // Retornar a opção selecionada
         } else {
-            printf("Opcao invalida. A opcao deve estar entre %d e %d: ", menor_valor, maior_valor);
+            printf("Opcao invalida. A opcao deve estar entre %c e %c: ", menor_valor, maior_valor);
             limpabuffer();
         }
     } while (1);

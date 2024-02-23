@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include<string.h>
 
 /*Estrutura que armazena os dados dos clientes */
 typedef struct Clientes{
@@ -47,7 +48,7 @@ void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquiv
 
 /*Essa função lê a opção escolhida pelo usuário e verifica se a opção é válida,
 recebendo como parâmetro o menor valor e o maior valor que a opção pode ter.*/
-int ler_opcao(int menor_valor, int maior_valor);
+char ler_opcao(char menor_valor, char maior_valor);
 
 /*Essa função limpa o buffer do teclado para evitar que lixo de memória seja lido.
 e evita que o programa entre em loop infinito.*/

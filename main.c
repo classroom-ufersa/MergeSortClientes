@@ -3,10 +3,9 @@
 int main(void)
 {
     srand(time(NULL));
-    //int escolha = 0, op = 0;
     clock_t inicio, fim;
     float tempo;
-    int escolhaop;
+    char escolhaop;
     int total_de_Usuarios = 0;
 
     FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "r+");
@@ -29,23 +28,23 @@ int main(void)
     do {
         menu();
         printf("Escolha uma opção: ");
-        escolhaop = ler_opcao(1, 4); // Obter a opção do usuário
+        escolhaop = ler_opcao('1', '4'); // Obter a opção do usuário
 
         switch (escolhaop) {
-            case 1:
+            case '1':
                 do {
                 realocar_Memoria(&Usuarios, total_de_Usuarios + 1);
                 preencher_Dados(Usuarios, total_de_Usuarios, arquivo_client);
                 total_de_Usuarios++;
                 printf("Deseja cadastrar mais um usuário? (1 - Sim / 2 - Não): ");
-                escolhaop = ler_opcao(1, 2);
-                } while (escolhaop != 2);
+                escolhaop = ler_opcao('1', '2');
+                } while (escolhaop != '2');
                 break;
-            case 2:
+            case '2':
             imprimir_dados(Usuarios, total_de_Usuarios);
             alterar_dados(Usuarios, total_de_Usuarios, arquivo_client);
             break;
-            case 3:
+            case '3':
             inicio = clock();
             mergeSort(Usuarios, 0, total_de_Usuarios - 1);
             alterar_dados_merge(Usuarios, total_de_Usuarios, arquivo_client);
@@ -54,14 +53,14 @@ int main(void)
             printf("Tempo de execução: %.f segundos\n", tempo);
             printf("Ordenação realizada com sucesso! \n");
             break;
-            case 4:
+            case '4':
                 printf("Saindo...\n");
                 break;
             default:
                 printf("Opção inválida. Tente novamente.\n");
                 break;
         }
-    } while (escolhaop != 4);
+    } while (escolhaop != '4');
 
     free(Usuarios);
 
