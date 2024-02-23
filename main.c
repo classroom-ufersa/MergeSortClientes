@@ -8,7 +8,7 @@ int main(void)
     char escolhaop;
     int total_de_Usuarios = 0;
 
-    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "r+");
+    FILE *arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "a+");
 
     if (arquivo_client == NULL)
     {
