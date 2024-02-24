@@ -1,4 +1,4 @@
-# Ordenação de clientes com Merge Sort algorithm
+# Ordenação de clientes com Merge Sort
 
 ## Súmario:
 
