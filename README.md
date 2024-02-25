@@ -5,16 +5,17 @@
   <ul>
     <li><a href="#sobre-o-algoritmo">Sobre o algoritmo</a></li>
     <li><a href="#como-funciona-o-merge-sort">Como funciona o Merge Sort?</a></li>
-    <li><a href="#implementacao">Implementação</a></li>
+    <li><a href="#implementação">Implementação</a></li>
     <li><a href="#complexidade">Complexidade</a></li>
-    <li><a href="#referencia">Referência</a></li>
+    <li><a href="#referência">Referência</a></li>
     <li><a href="#colaboradores">Colaboradores</a></li>
   </ul>
 </div>
 
+
 ## Sobre o algoritmo
 
-<p></p>
+<p>O Merge Sort é um algoritmo de Ordenação com Classificação de Mesclagem, é um método eficiente e recursivo para ordenar elementos em uma lista ou array. Ele divide repetidamente a lista em partes menores, até que cada parte tenha apenas um elemento. Em seguida, ele combina essas partes menores de maneira ordenada, produzindo gradualmente uma lista totalmente ordenada.</p>
 
 ## Como funciona o Merge Sort?
 
