@@ -1,3 +1,7 @@
+Nome: guilherme
+Endereço: alexandria
+Código de Cliente: 6
+
 Nome: marcelo
 Endereço: alexandria
 Código de Cliente: 261
