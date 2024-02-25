@@ -130,22 +130,22 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
 
 void merge(clientes *usuarios, int esquerda, int meio, int direita)
 {
-    int i, j, k;
-    int n1 = meio - esquerda + 1;
-    int n2 = direita - meio;
+    int i, j, k; 
+    int tamanho_esquerda = meio - esquerda + 1;   //Armazenam o tamanho do subarray Esquerda
+    int tamanho_direita = direita - meio;         //Armazenam o tamanho do subarray Direita
 
-    clientes Esquerda[n1], Direita[n2];
+    clientes Esquerda[tamanho_esquerda], Direita[tamanho_direita];
 
-    for (i = 0; i < n1; i++)
+    for (i = 0; i < tamanho_esquerda; i++)
         Esquerda[i] = usuarios[esquerda + i];
-    for (j = 0; j < n2; j++)
+    for (j = 0; j < tamanho_direita; j++)
         Direita[j] = usuarios[meio + 1 + j];
 
     i = 0;
     j = 0;
     k = esquerda;
 
-    while (i < n1 && j < n2)
+    while (i < tamanho_esquerda && j < tamanho_direita)
     {
         if (Esquerda[i].codigo_de_cliente <= Direita[j].codigo_de_cliente)
         {
@@ -160,14 +160,14 @@ void merge(clientes *usuarios, int esquerda, int meio, int direita)
         k++;
     }
 
-    while (i < n1)
+    while (i < tamanho_esquerda)
     {
         usuarios[k] = Esquerda[i];
         i++;
         k++;
     }
 
-    while (j < n2)
+    while (j < tamanho_direita)
     {
         usuarios[k] = Direita[j];
         j++;
