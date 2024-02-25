@@ -130,64 +130,67 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
 
 void merge(clientes *usuarios, int esquerda, int meio, int direita)
 {
-    int i, j, k; 
-    int tamanho_esquerda = meio - esquerda + 1;   //Armazenam o tamanho do subarray Esquerda
-    int tamanho_direita = direita - meio;         //Armazenam o tamanho do subarray Direita
+    int i, j, k; //c1, 1 vez
+    int tamanho_esquerda = meio - esquerda + 1;   //Armazenam o tamanho do subarray Esquerda, c2 1vez
+    int tamanho_direita = direita - meio;         //Armazenam o tamanho do subarray Direita, c3 1 vez
 
-    clientes Esquerda[tamanho_esquerda], Direita[tamanho_direita];
+    clientes Esquerda[tamanho_esquerda], Direita[tamanho_direita]; //c4 1 vez
 
-    for (i = 0; i < tamanho_esquerda; i++)
-        Esquerda[i] = usuarios[esquerda + i];
-    for (j = 0; j < tamanho_direita; j++)
-        Direita[j] = usuarios[meio + 1 + j];
+    for (i = 0; i < tamanho_esquerda; i++) //c5 n vezes
+        Esquerda[i] = usuarios[esquerda + i]; //c6 n vezes
+    for (j = 0; j < tamanho_direita; j++)   //c7 n vezes
+        Direita[j] = usuarios[meio + 1 + j]; //c8 n vezes
 
-    i = 0;
-    j = 0;
-    k = esquerda;
+    i = 0; //c9 1 vez
+    j = 0; //c10 1 vez
+    k = esquerda; //c11 1 vez
 
-    while (i < tamanho_esquerda && j < tamanho_direita)
+    while (i < tamanho_esquerda && j < tamanho_direita) //c12 n vezes
     {
-        if (Esquerda[i].codigo_de_cliente <= Direita[j].codigo_de_cliente)
+        if (Esquerda[i].codigo_de_cliente <= Direita[j].codigo_de_cliente) //c13 n vezes
         {
-            usuarios[k] = Esquerda[i];
-            i++;
+            usuarios[k] = Esquerda[i]; //c14 n vezes
+            i++; //c15 n vezes
         }
-        else
+        else //c16 n vezes
         {
-            usuarios[k] = Direita[j];
-            j++;
+            usuarios[k] = Direita[j]; //c17 n vezes
+            j++; //c18 n vezes
         }
-        k++;
+        k++; //c19 n vezes
     }
 
-    while (i < tamanho_esquerda)
+    while (i < tamanho_esquerda) //c20 n vezes
     {
-        usuarios[k] = Esquerda[i];
-        i++;
-        k++;
+        usuarios[k] = Esquerda[i]; //c21 n vezes
+        i++; //c22 n vezes
+        k++; //c23 n vezes
     }
 
-    while (j < tamanho_direita)
+    while (j < tamanho_direita) //c24 n vezes
     {
-        usuarios[k] = Direita[j];
-        j++;
-        k++;
+        usuarios[k] = Direita[j]; //c25 n vezes
+        j++; //c26 n vezes
+        k++; //c27 n vezes
     }
 }
 
 void mergeSort(clientes *usuarios, int esquerda, int direita)
 {
-    if (esquerda < direita)
+    if (esquerda < direita) //c28 1 vez
     {
-        int meio = esquerda + (direita - esquerda) / 2;
+        int meio = esquerda + (direita - esquerda) / 2; //c29 1 vez
 
-        mergeSort(usuarios, esquerda, meio);
-        mergeSort(usuarios, meio + 1, direita);
+        mergeSort(usuarios, esquerda, meio);  //T(n/2) 1 vez
+        mergeSort(usuarios, meio + 1, direita); //T(n/2) 1 vez
 
-        merge(usuarios, esquerda, meio, direita);
+        merge(usuarios, esquerda, meio, direita);   //O(n) 1 vez
     }
 }
 
+// análise de tempo de execução = c1 + c2 + c3 + c4 + c5*n + c6*n + c7*n + c8*n + c9 + c10 + c11 + c12*n + c13*n + c14*n + c15*n + c16*n + c17*n + c18*n + c19*n + c20*n + c21*n + c22*n + c23*n + c24*n + c25*n + c26*n + c27*n + c28 + c29 + T(n/2) + T(n/2) + O(n)
+//simplicando a equação = (c1 + c2 + c3 + c4 + c9 + c10 + c11 + c28 + c29) + (c5 + c6 + c7 + c8 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + c21 + c22 + c23 + c24 + c25 + c26 + c27)*n + 2T(n/2) + O(n)
+//O(n) = n*log(n)
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
 {
     arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");

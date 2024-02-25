@@ -22,3 +22,7 @@ Nome: thyago
 Endereço: antonio martins
 Código de Cliente: 717
 
+Nome: marcelo 
+Endereço: mole
+Código de Cliente: 80
+
