@@ -188,8 +188,8 @@ void mergeSort(clientes *usuarios, int esquerda, int direita)
     }
 }
 
-// análise de tempo de execução = c1 + c2 + c3 + c4 + c5*n + c6*n + c7*n + c8*n + c9 + c10 + c11 + c12*n + c13*n + c14*n + c15*n + c16*n + c17*n + c18*n + c19*n + c20*n + c21*n + c22*n + c23*n + c24*n + c25*n + c26*n + c27*n + c28 + c29 + T(n/2) + T(n/2) + O(n)
-//simplicando a equação = (c1 + c2 + c3 + c4 + c9 + c10 + c11 + c28 + c29) + (c5 + c6 + c7 + c8 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + c21 + c22 + c23 + c24 + c25 + c26 + c27)*n + 2T(n/2) + O(n)
+// análise de tempo de execução T(n) = c1 + c2 + c3 + c4 + c5*n + c6*n + c7*n + c8*n + c9 + c10 + c11 + c12*n + c13*n + c14*n + c15*n + c16*n + c17*n + c18*n + c19*n + c20*n + c21*n + c22*n + c23*n + c24*n + c25*n + c26*n + c27*n + c28 + c29 + T(n/2) + T(n/2) + O(n)
+//simplicando a equação T(n) = (c1 + c2 + c3 + c4 + c9 + c10 + c11 + c28 + c29) + (c5 + c6 + c7 + c8 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + c21 + c22 + c23 + c24 + c25 + c26 + c27)*n + 2T(n/2) + O(n)
 //O(n) = n*log(n)
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
 {
