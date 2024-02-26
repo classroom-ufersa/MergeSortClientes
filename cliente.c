@@ -14,23 +14,29 @@ void ler_arquivo(FILE *arquivo_client, clientes **usuarios, int *total_de_Usuari
     }
 }
 
-void limpabuffer() {
+void limpabuffer()
+{
     fflush(stdin);
 }
 
-char ler_opcao(char menor_valor, char maior_valor) {
+char ler_opcao(char menor_valor, char maior_valor)
+{
     char escolhaop;
     char entrada[100];
 
-    do {
+    do
+    {
         scanf(" %[^\n]", entrada);
 
         escolhaop = entrada[0];
 
-        if (escolhaop >= menor_valor && escolhaop <= maior_valor && strlen(entrada) == 1) {
+        if (escolhaop >= menor_valor && escolhaop <= maior_valor && strlen(entrada) == 1)
+        {
             limpabuffer();
             return escolhaop; // Retornar a opção selecionada
-        } else {
+        }
+        else
+        {
             printf("Opcao invalida. A opcao deve estar entre %c e %c: ", menor_valor, maior_valor);
             limpabuffer();
         }
@@ -58,9 +64,28 @@ void realocar_Memoria(clientes **usuarios, int total_de_Usuarios)
 
 void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
 {
+
     printf("--------------------------\n");
     printf("Digite o nome do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].nome);
+
+    bool valido = true;
+    for (int i = 0; usuarios[total_de_Usuarios].nome[i]; i++)
+    {
+        if (!isalpha(usuarios[total_de_Usuarios].nome[i]))
+        {
+            printf("O nome deve conter apenas letras. Por favor, tente novamente.\n");
+            valido = false;
+            break;
+        }
+    }
+
+    if (!valido)
+    {
+        printf("Erro ao cadastrar o cliente!\n");
+        return;
+    }
+
     printf("Digite o endereco do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].endereco);
     usuarios[total_de_Usuarios].codigo_de_cliente = rand() % 1000;
@@ -91,6 +116,23 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
             valido = true;
             printf("Digite o novo nome do cliente: ");
             scanf(" %[^\n]", usuarios[i].nome);
+            bool valido2 = true;
+            for (int i = 0; usuarios[total_de_Usuarios].nome[i]; i++)
+            {
+                if (!isalpha(usuarios[total_de_Usuarios].nome[i]))
+                {
+                    printf("O nome deve conter apenas letras. Por favor, tente novamente.\n");
+                    valido2 = false;
+                    break;
+                }
+            }
+
+            if (!valido2)
+            {
+                printf("Erro ao cadastrar o cliente!\n");
+                return;
+            }
+            
             printf("Digite o novo endereço do cliente: ");
             scanf(" %[^\n]", usuarios[i].endereco);
 
@@ -132,67 +174,67 @@ void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
 
 void merge(clientes *usuarios, int esquerda, int meio, int direita)
 {
-    int i, j, k; //c1, 1 vez
-    int tamanho_esquerda = meio - esquerda + 1;   //Armazenam o tamanho do subarray Esquerda, c2 1vez
-    int tamanho_direita = direita - meio;         //Armazenam o tamanho do subarray Direita, c3 1 vez
+    int i, j, k;                                // c1, 1 vez
+    int tamanho_esquerda = meio - esquerda + 1; // Armazenam o tamanho do subarray Esquerda, c2 1vez
+    int tamanho_direita = direita - meio;       // Armazenam o tamanho do subarray Direita, c3 1 vez
 
-    clientes Esquerda[tamanho_esquerda], Direita[tamanho_direita]; //c4 1 vez
+    clientes Esquerda[tamanho_esquerda], Direita[tamanho_direita]; // c4 1 vez
 
-    for (i = 0; i < tamanho_esquerda; i++) //c5 n vezes
-        Esquerda[i] = usuarios[esquerda + i]; //c6 n vezes
-    for (j = 0; j < tamanho_direita; j++)   //c7 n vezes
-        Direita[j] = usuarios[meio + 1 + j]; //c8 n vezes
+    for (i = 0; i < tamanho_esquerda; i++)    // c5 n vezes
+        Esquerda[i] = usuarios[esquerda + i]; // c6 n vezes
+    for (j = 0; j < tamanho_direita; j++)     // c7 n vezes
+        Direita[j] = usuarios[meio + 1 + j];  // c8 n vezes
 
-    i = 0; //c9 1 vez
-    j = 0; //c10 1 vez
-    k = esquerda; //c11 1 vez
+    i = 0;        // c9 1 vez
+    j = 0;        // c10 1 vez
+    k = esquerda; // c11 1 vez
 
-    while (i < tamanho_esquerda && j < tamanho_direita) //c12 n vezes
+    while (i < tamanho_esquerda && j < tamanho_direita) // c12 n vezes
     {
-        if (Esquerda[i].codigo_de_cliente <= Direita[j].codigo_de_cliente) //c13 n vezes
+        if (Esquerda[i].codigo_de_cliente <= Direita[j].codigo_de_cliente) // c13 n vezes
         {
-            usuarios[k] = Esquerda[i]; //c14 n vezes
-            i++; //c15 n vezes
+            usuarios[k] = Esquerda[i]; // c14 n vezes
+            i++;                       // c15 n vezes
         }
-        else //c16 n vezes
+        else // c16 n vezes
         {
-            usuarios[k] = Direita[j]; //c17 n vezes
-            j++; //c18 n vezes
+            usuarios[k] = Direita[j]; // c17 n vezes
+            j++;                      // c18 n vezes
         }
-        k++; //c19 n vezes
+        k++; // c19 n vezes
     }
 
-    while (i < tamanho_esquerda) //c20 n vezes
+    while (i < tamanho_esquerda) // c20 n vezes
     {
-        usuarios[k] = Esquerda[i]; //c21 n vezes
-        i++; //c22 n vezes
-        k++; //c23 n vezes
+        usuarios[k] = Esquerda[i]; // c21 n vezes
+        i++;                       // c22 n vezes
+        k++;                       // c23 n vezes
     }
 
-    while (j < tamanho_direita) //c24 n vezes
+    while (j < tamanho_direita) // c24 n vezes
     {
-        usuarios[k] = Direita[j]; //c25 n vezes
-        j++; //c26 n vezes
-        k++; //c27 n vezes
+        usuarios[k] = Direita[j]; // c25 n vezes
+        j++;                      // c26 n vezes
+        k++;                      // c27 n vezes
     }
 }
 
 void mergeSort(clientes *usuarios, int esquerda, int direita)
 {
-    if (esquerda < direita) //c28 1 vez
+    if (esquerda < direita) // c28 1 vez
     {
-        int meio = esquerda + (direita - esquerda) / 2; //c29 1 vez
+        int meio = esquerda + (direita - esquerda) / 2; // c29 1 vez
 
-        mergeSort(usuarios, esquerda, meio);  //T(n/2) 1 vez
-        mergeSort(usuarios, meio + 1, direita); //T(n/2) 1 vez
+        mergeSort(usuarios, esquerda, meio);    // T(n/2) 1 vez
+        mergeSort(usuarios, meio + 1, direita); // T(n/2) 1 vez
 
-        merge(usuarios, esquerda, meio, direita);   //O(n) 1 vez
+        merge(usuarios, esquerda, meio, direita); // O(n) 1 vez
     }
 }
 
 // análise de tempo de execução T(n) = c1 + c2 + c3 + c4 + c5*n + c6*n + c7*n + c8*n + c9 + c10 + c11 + c12*n + c13*n + c14*n + c15*n + c16*n + c17*n + c18*n + c19*n + c20*n + c21*n + c22*n + c23*n + c24*n + c25*n + c26*n + c27*n + c28 + c29 + T(n/2) + T(n/2) + O(n)
-//simplicando a equação T(n) = (c1 + c2 + c3 + c4 + c9 + c10 + c11 + c28 + c29) + (c5 + c6 + c7 + c8 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + c21 + c22 + c23 + c24 + c25 + c26 + c27)*n + 2T(n/2) + O(n)
-//O(n) = n*log(n)
+// simplicando a equação T(n) = (c1 + c2 + c3 + c4 + c9 + c10 + c11 + c28 + c29) + (c5 + c6 + c7 + c8 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + c21 + c22 + c23 + c24 + c25 + c26 + c27)*n + 2T(n/2) + O(n)
+// O(n) = n*log(n)
 void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_client)
 {
     arquivo_client = fopen("arquivo_dados_dos_clientes.txt", "w");

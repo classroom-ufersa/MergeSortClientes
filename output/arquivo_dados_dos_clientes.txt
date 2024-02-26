@@ -1,3 +1,7 @@
+Nome: marcelo
+Endereço: alexandria
+Código de Cliente: 6
+
 Nome: Samuel
 Endereço: Natal
 Código de Cliente: 225
@@ -10,11 +14,19 @@ Nome: Erick
 Endereço: Francisco Dantas
 Código de Cliente: 372
 
+Nome: thayssa
+Endereço: tenente 
+Código de Cliente: 442
+
+Nome: samuel
+Endereço: coronel
+Código de Cliente: 614
+
 Nome: Beatriz
 Endereço: Iracema
 Código de Cliente: 880
 
-Nome: Marcelo 
-Endereço: Alexandria
-Código de Cliente: 939
+Nome: thallys
+Endereço: natal
+Código de Cliente: 918
 
