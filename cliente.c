@@ -117,6 +117,8 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
         printf("Codigo de cliente não encontrado!\n");
         printf("---------------------------\n");
     }
+
+    fclose(arquivo_client);
 }
 
 void imprimir_dados(clientes *usuarios, int total_de_Usuarios)
@@ -201,4 +203,5 @@ void alterar_dados_merge(clientes *usuarios, int total_de_Usuarios, FILE *arquiv
         fprintf(arquivo_client, "Código de Cliente: %d\n", usuarios[i].codigo_de_cliente);
         fprintf(arquivo_client, "\n");
     }
+    fclose(arquivo_client);
 }
