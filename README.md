@@ -15,7 +15,7 @@
 
 ## Sobre o algoritmo
 
-<p>O Merge Sort é um algoritmo de Ordenação com Classificação de Mesclagem, é um método eficiente e recursivo para ordenar elementos em uma lista ou array. Ele divide repetidamente a lista em partes menores, até que cada parte tenha apenas um elemento. Em seguida, ele combina essas partes menores de maneira ordenada, produzindo gradualmente uma lista totalmente ordenada.</p>
+<p>O algoritmo divide continuamente o array ao meio até que ele não possa ser dividido, depois é realizada uma classificação com o elemento à esquerda (uma matriz com um elemento é sempre classificada) .Em seguida, os subarrays classificados são mesclados em um array classificado. Depois ele coloca as posições em ordem crescente de valor.</p>
 
 ## Como funciona o Merge Sort?
 
