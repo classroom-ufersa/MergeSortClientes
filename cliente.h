@@ -3,7 +3,6 @@
 #include <time.h>
 #include <stdbool.h>
 #include<string.h>
-#include<ctype.h>
 
 /*Estrutura que armazena os dados dos clientes */
 typedef struct Clientes{

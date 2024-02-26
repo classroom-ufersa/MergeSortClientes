@@ -69,23 +69,6 @@ void preencher_Dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_cl
     printf("Digite o nome do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].nome);
 
-    bool valido = true;
-    for (int i = 0; usuarios[total_de_Usuarios].nome[i]; i++)
-    {
-        if (!isalpha(usuarios[total_de_Usuarios].nome[i]))
-        {
-            printf("O nome deve conter apenas letras. Por favor, tente novamente.\n");
-            valido = false;
-            break;
-        }
-    }
-
-    if (!valido)
-    {
-        printf("Erro ao cadastrar o cliente!\n");
-        return;
-    }
-
     printf("Digite o endereco do cliente: ");
     scanf(" %[^\n]", usuarios[total_de_Usuarios].endereco);
     usuarios[total_de_Usuarios].codigo_de_cliente = rand() % 1000;
@@ -116,23 +99,6 @@ void alterar_dados(clientes *usuarios, int total_de_Usuarios, FILE *arquivo_clie
             valido = true;
             printf("Digite o novo nome do cliente: ");
             scanf(" %[^\n]", usuarios[i].nome);
-            bool valido2 = true;
-            for (int i = 0; usuarios[total_de_Usuarios].nome[i]; i++)
-            {
-                if (!isalpha(usuarios[total_de_Usuarios].nome[i]))
-                {
-                    printf("O nome deve conter apenas letras. Por favor, tente novamente.\n");
-                    valido2 = false;
-                    break;
-                }
-            }
-
-            if (!valido2)
-            {
-                printf("Erro ao cadastrar o cliente!\n");
-                return;
-            }
-            
             printf("Digite o novo endereço do cliente: ");
             scanf(" %[^\n]", usuarios[i].endereco);
 
